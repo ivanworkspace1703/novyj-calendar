@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 import { DayPicker } from 'react-day-picker';
 import { useWebApp } from '@vkruglikov/react-telegram-web-app';
 import { useState } from 'react';
+import { format } from 'date-fns';
 
 function Calendar(params) {
 	const { backgroundColor } = useWebApp();
@@ -19,7 +20,7 @@ function Calendar(params) {
 	let disabledMatcher = () => false;
 	if(initResult.data) {
 		disabledMatcher = date => {
-			const dateStr = date.toISOString().split('T')[0];
+			const dateStr = format(date, 'yyyy-MM-dd');
 			return !initResult.data.calendar.dates.includes(dateStr);
 		}
 	}

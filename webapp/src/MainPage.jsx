@@ -33,6 +33,7 @@ function MainPage() {
 			}}>
 				<div>
 				<DayPicker
+					weekStartsOn={1}
 					mode="single"
 					disabled={true}
 					/>
